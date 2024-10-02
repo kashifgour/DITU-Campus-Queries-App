@@ -1,7 +1,6 @@
 from langchain.vectorstores import FAISS
 from langchain.llms import GooglePalm
 from langchain.document_loaders.csv_loader import CSVLoader
-#from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
@@ -12,10 +11,9 @@ load_dotenv()  # take environment variables from .env (especially openai api key
 # Set up Google API key for accessing AI models
 os.environ["google_api_key"] = os.getenv("GOOGLE_API_KEY")
 
-# Create Google Palm LLM model
-# llm = GooglePalm(google_api_key=os.environ["GOOGLE_API_KEY"], temperature=0.1)
+# ChatGoogleGenerativeAI
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.1)
-# # Initialize instructor embeddings using the Hugging Face model
+
 instructor_embeddings =  GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 vectordb_file_path = "faiss_index"
 
