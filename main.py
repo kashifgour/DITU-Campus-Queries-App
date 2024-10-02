@@ -11,7 +11,7 @@ load_dotenv()  # take environment variables from .env (especially openai api key
 # Set up Google API key for accessing AI models
 os.environ["google_api_key"] = os.getenv("GOOGLE_API_KEY")
 
-# ChatGoogleGenerativeAI
+# ChatGoogleGenerativeAI Model
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0.1)
 
 instructor_embeddings =  GoogleGenerativeAIEmbeddings(model="models/embedding-001")
